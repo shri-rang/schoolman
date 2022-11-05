@@ -1,0 +1,54 @@
+import 'package:http/http.dart' as http;
+import '../constant.dart';
+
+class HomeServices {
+  Future<dynamic> schoolInfo() async {
+    try {
+      print('loginUser');
+
+      // var basicAuth = await authHeader();
+      var url = Uri.parse('${Constants.url}${Constants.school}');
+      var response = await http.get(
+        url,
+        // headers: <String, String>{
+        //   'authorization': basicAuth,
+        //   'Accept-Language': Constants.acceptedLanguage,
+        //   'platform': Platform.operatingSystem,
+        //   'version': deviceVersion,
+        //   'device-id': deviceId
+        // },
+      );
+      // print(response.body);
+      return response;
+    } catch (e) {
+      print('=======This is exception=========');
+      print(e);
+      return ' ';
+    }
+  }
+
+  Future<dynamic> studentInfo(String studdentId) async {
+    try {
+      print('loginUser');
+
+      // var basicAuth = await authHeader();
+      var url = Uri.parse('${Constants.url}${Constants.profile}/$studdentId');
+      var response = await http.get(
+        url,
+        // headers: <String, String>{
+        //   'authorization': basicAuth,
+        //   'Accept-Language': Constants.acceptedLanguage,
+        //   'platform': Platform.operatingSystem,
+        //   'version': deviceVersion,
+        //   'device-id': deviceId
+        // },
+      );
+      // print(response.body);
+      return response;
+    } catch (e) {
+      print('=======This is exception=========');
+      print(e);
+      return ' ';
+    }
+  }
+}
